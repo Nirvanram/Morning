@@ -1,0 +1,240 @@
+/* Reset and base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #ffc0cb, #ffe4e1);
+  height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+}
+
+main {
+  width: 100%;
+  max-width: 480px;
+}
+
+/* Present box styling */
+.present {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline-offset: 4px;
+}
+
+.present:focus-visible {
+  outline: 3px solid #ff99cc;
+  outline-offset: 6px;
+}
+
+.lid {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 30px;
+  background-color: #ff6699;
+  border-radius: 8px 8px 0 0;
+  z-index: 2;
+}
+
+.box-body {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 90px;
+  background-color: #ff3366;
+  border-radius: 0 0 8px 8px;
+  z-index: 1;
+}
+
+.ribbon-vertical,
+.ribbon-horizontal {
+  position: absolute;
+  background-color: white;
+}
+
+.ribbon-vertical {
+  width: 10px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.ribbon-horizontal {
+  width: 100%;
+  height: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+/* Click me text */
+.click-text {
+  margin-top: 12px;
+  font-size: 3rem;
+  color: white;
+  font-family: 'Pacifico', cursive;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  user-select: none;
+  outline-offset: 4px;
+}
+
+.click-text:hover,
+.click-text:focus-visible {
+  transform: scale(1.1);
+  outline: 3px solid #ff99cc;
+  outline-offset: 6px;
+}
+
+/* Greeting container */
+.hidden {
+  display: none;
+}
+
+#greeting-container {
+  margin-top: 30px;
+  position: relative;
+}
+
+/* Rubber ducky */
+.rubber-ducky {
+  width: 150px;
+  margin: 0 auto 15px;
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.2));
+  user-select: none;
+  display: block;
+}
+
+/* Greeting text */
+h1#greeting {
+  font-size: 4.5rem;
+  color: white;
+  font-family: 'Pacifico', cursive;
+  text-shadow: 3px 3px 8px rgba(255, 182, 193, 0.9);
+  user-select: none;
+  letter-spacing: 2px;
+  animation: fadeIn 1s ease-in-out;
+  margin: 0;
+  line-height: 1.1;
+  position: relative;
+}
+
+/* Read message button */
+.read-message-btn {
+  margin-top: 25px;
+  padding: 12px 28px;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.3rem;
+  color: white;
+  background: linear-gradient(135deg, #ff6699, #ff3366);
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(255, 102, 153, 0.7);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  user-select: none;
+  outline: none;
+}
+
+.read-message-btn:hover,
+.read-message-btn:focus {
+  transform: scale(1.1);
+  box-shadow: 0 6px 15px rgba(255, 102, 153, 0.9);
+  outline: none;
+}
+
+.read-message-btn:focus-visible {
+  outline: 3px solid #ff99cc;
+  outline-offset: 3px;
+}
+
+/* Sparkle animation */
+.sparkle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px 2px white;
+  animation: explode 1s ease-out forwards;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+@keyframes explode {
+  to {
+    transform: translate(var(--x), var(--y)) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive typography */
+@media (max-width: 600px) {
+  h1#greeting {
+    font-size: 3rem;
+  }
+  .click-text {
+    font-size: 2.2rem;
+  }
+  .read-message-btn {
+    font-size: 1.1rem;
+    padding: 10px 20px;
+  }
+  .rubber-ducky {
+    width: 110px;
+    margin-bottom: 10px;
+  }
+  .present {
+    width: 90px;
+    height: 90px;
+  }
+}
+
+@media (max-width: 350px) {
+  h1#greeting {
+    font-size: 2.2rem;
+  }
+  .click-text {
+    font-size: 1.6rem;
+  }
+  .read-message-btn {
+    font-size: 1rem;
+    padding: 8px 16px;
+  }
+  .rubber-ducky {
+    width: 90px;
+    margin-bottom: 8px;
+  }
+  .present {
+    width: 70px;
+    height: 70px;
+  }
+}

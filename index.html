@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Good Morning Omelette</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <main>
+    <div
+      class="present"
+      id="presentBox"
+      role="button"
+      aria-label="Open present"
+      tabindex="0"
+    >
+      <div class="lid"></div>
+      <div class="box-body"></div>
+      <div class="ribbon-vertical"></div>
+      <div class="ribbon-horizontal"></div>
+    </div>
+
+    <div
+      class="click-text"
+      id="clickText"
+      role="button"
+      tabindex="0"
+      aria-label="Click to open present"
+    >
+      Click me
+    </div>
+
+    <section
+      id="greeting-container"
+      class="hidden"
+      aria-live="polite"
+      aria-atomic="true"
+    >
+      <img
+        src="images/rubber-ducky.png"
+        alt="Rubber Ducky"
+        class="rubber-ducky"
+        aria-hidden="true"
+      />
+      <h1 id="greeting">Good morning omelette</h1>
+      <button id="readMessageBtn" class="read-message-btn">
+        Click here to read the message
+      </button>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
